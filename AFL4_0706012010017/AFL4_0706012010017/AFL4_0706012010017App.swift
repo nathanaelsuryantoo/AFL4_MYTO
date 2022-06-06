@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct AFL4_0706012010017App: App {
+    
+    @StateObject private var vm = MarketViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView{
+                ContentView()
+            }
+            .environmentObject(vm)
+            .navigationBarHidden(true)
         }
     }
 }

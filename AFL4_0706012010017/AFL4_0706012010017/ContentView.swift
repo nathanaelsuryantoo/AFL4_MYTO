@@ -11,13 +11,13 @@ struct ContentView: View {
     var body: some View {
         TabView{
             Home().tabItem(){
-                Image(systemName:"menucard.fill")
+                Image(systemName:"menucard")
                 Text("Home")
             };Market().tabItem(){
                 Image(systemName:"chart.bar")
                 Text("Market")
             };Wishlist().tabItem(){
-                Image(systemName: "heart.fill")
+                Image(systemName: "heart")
                 Text("Wishlist")
             }
         }
@@ -27,5 +27,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(MarketViewModel())
     }
 }

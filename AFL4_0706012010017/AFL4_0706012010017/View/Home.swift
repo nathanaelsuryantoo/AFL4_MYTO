@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct Home: View {
+    
+    @EnvironmentObject private var vm: MarketViewModel
+    
     var body: some View {
-        Text("Home View")
+        
+            VStack{
+                HomeStatsView()
+            }
+        
     }
 }
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        NavigationView{
+            Home()
+            .environmentObject(dev.marketVM)
+        }
     }
 }
