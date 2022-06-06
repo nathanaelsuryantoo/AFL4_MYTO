@@ -132,9 +132,8 @@ struct CoinDetail: View {
 
 struct CoinDetail_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
         CoinDetail(coin: dev.coin)
-        }
+        
     }
 }
 

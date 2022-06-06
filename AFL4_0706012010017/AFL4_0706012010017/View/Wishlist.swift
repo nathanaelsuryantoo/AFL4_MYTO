@@ -12,9 +12,10 @@ struct Wishlist: View {
     @EnvironmentObject private var vm: MarketViewModel
     
     var body: some View {
-        NavigationView{
+        VStack{
             allCoinList
         }
+        
     }
 }
 
@@ -28,6 +29,9 @@ struct Wishlist_Previews: PreviewProvider {
 extension Wishlist{
     private var allCoinList: some View{
         VStack{
+            Text("My Wishlist")
+                .font(.title)
+                .bold()
             List{
                 ForEach(vm.wishListCoins){coin in
                     CoinRowView(coin: coin, showHoldingsColumn: true)
@@ -36,5 +40,6 @@ extension Wishlist{
             }
             .listStyle(PlainListStyle())
         }
+        .padding()
     }
 }

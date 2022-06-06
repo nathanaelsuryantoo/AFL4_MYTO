@@ -10,13 +10,26 @@ import SwiftUI
 struct HomeStatsView: View {
     
     @EnvironmentObject private var vm: MarketViewModel
+    
+    private let columns: [GridItem] = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+    ]
+    
     var body: some View {
-        VStack{
-            ForEach(vm.statistic){ stat in
-                StatisticView(stat: stat)
-            }
-            .frame(width: 100, alignment: .leading)
-            .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 0))
+        VStack(spacing: 20){
+            LazyVGrid(
+                columns: columns,
+                alignment: .leading,
+                spacing: 30,
+                pinnedViews: [],
+                content: {
+                    ForEach(vm.statistic){ stat in
+                        StatisticView(stat: stat)
+                    }
+                })
+                .padding(.leading, 30)
+            
         }
         .frame(width: UIScreen.main.bounds.width, alignment: .leading)
     }

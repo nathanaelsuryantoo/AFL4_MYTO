@@ -35,6 +35,9 @@ struct AddWishlistView: View {
     var body: some View {
         
             VStack{
+                Text("Add to wishlist")
+                    .bold()
+                    .padding(.bottom, 40)
                 Group{
                     CoinImageView(coin: coin)
                         .frame(width: 125, height: 125)
@@ -62,7 +65,7 @@ struct AddWishlistView: View {
                     }
                     .padding(.bottom, 40)
                     Button(action: {
-                        print("")
+                        saveButtonPressed()
                     }, label: {
                         Text("Save")
                             .foregroundColor(.white)
@@ -94,5 +97,10 @@ extension AddWishlistView{
             return quantity * (coin.currentPrice )
         }
         return 0
+    }
+    public func saveButtonPressed(){
+        guard let amount = Double(quantityText) else{return}
+        
+        vm.updateWishlist(coin: coin, amount: amount)
     }
 }

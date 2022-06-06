@@ -18,7 +18,6 @@ struct AFL4_0706012010017App: App {
                 ContentView()
             }
             .environmentObject(vm)
-            .navigationBarHidden(true)
         }
     }
 }

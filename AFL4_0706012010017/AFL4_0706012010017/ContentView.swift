@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView{
-            Home().tabItem(){
+            Home(profile: .constant(.default)).tabItem(){
                 Image(systemName:"menucard")
                 Text("Home")
             };Market().tabItem(){
@@ -21,6 +21,8 @@ struct ContentView: View {
                 Text("Wishlist")
             }
         }
+        .navigationBarTitle("", displayMode: .inline)
+        .navigationBarHidden(true)
     }
 }
 

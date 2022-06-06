@@ -29,10 +29,9 @@ struct Market: View {
 
 struct Market_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView{
         Market()
             .environmentObject(dev.marketVM)
-        }
+        
     }
        
 }
@@ -40,6 +39,10 @@ extension Market{
     private var allCoinList: some View{
         
         VStack{
+            Text("Cryptocurrency List")
+                .font(.title)
+                .bold()
+                .padding(.bottom, 30)
             List{
                 ForEach(vm.allCoins){coin in
                    
@@ -53,7 +56,6 @@ extension Market{
                 }
             }
             .listStyle(PlainListStyle())
-            .frame(height: UIScreen.main.bounds.height/2)
             Spacer()
         }
         .padding()

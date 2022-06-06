@@ -33,9 +33,7 @@ struct CoinRowView_Previews: PreviewProvider {
             CoinRowView(coin: dev.coin, showHoldingsColumn: false)
                 .previewLayout(.sizeThatFits)
             CoinRowView(coin: dev.coin, showHoldingsColumn: true)
-                .previewLayout(.sizeThatFits)
-                .preferredColorScheme(.dark)
-        }
+                .previewLayout(.sizeThatFits)        }
         
     }
 }
@@ -98,10 +96,11 @@ extension CoinRowView{
     }
     private var wishlistlist: some View{
         HStack{
+            Spacer()
             CoinImageView(coin: coin)
                     .frame(width: 30, height: 30)
             Spacer()
-            VStack{
+            VStack(alignment: .leading){
                 Text((coin.currentHoldings ?? 0).asNumberString() + " \(coin.symbol.uppercased())")
                     .font(.title3)
                     .bold()
@@ -111,5 +110,7 @@ extension CoinRowView{
             Spacer()
             Spacer()
         }
+        .padding()
+        
     }
 }

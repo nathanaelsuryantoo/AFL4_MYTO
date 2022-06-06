@@ -19,17 +19,18 @@ struct StatisticView: View {
             Text(stat.value)
                 .font(.headline)
                 .foregroundColor(Color.black)
-            HStack(spacing: 4){
-                Image(systemName: "triangle.fill")
-                    .font(.caption2)
-                    .rotationEffect(
-                        Angle(degrees:(stat.percentageChange ?? 0) >= 0 ? 0 : 180))
-                Text(stat.percentageChange?.asPercentString() ?? "")
-                    .font(.caption)
-                    .bold()
-            }
-            .foregroundColor((stat.percentageChange  ?? 0) >= 0 ? Color.green : Color.red)
-            .opacity(stat.percentageChange == nil ? 0.0 : 1.0)
+                HStack(spacing: 4){
+                    Image(systemName: "triangle.fill")
+                        .font(.caption2)
+                        .rotationEffect(
+                            Angle(degrees:(stat.percentageChange ?? 0) >= 0 ? 0 : 180))
+                    Text(stat.percentageChange?.asPercentString() ?? "")
+                        .font(.caption)
+                        .bold()
+                }
+                .foregroundColor((stat.percentageChange  ?? 0) >= 0 ? Color.green : Color.red)
+                .opacity(stat.percentageChange == nil ? 0.0 : 1.0)
+            
             
         }
     }
